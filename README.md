@@ -85,7 +85,7 @@ entry, merge to `main`. One-time setup: a GitHub environment named `pypi`, and e
 ## Status
 
 Alpha. Covers one project per call and the most common read/write operations; it is not a full GitLab client.
-It originated in the Embersail project's GitLab tooling.
+It originated in the Embersail project's GitLab tooling. Plans for the next editions are in [TODO.md](TODO.md).
 
 ## License
 
