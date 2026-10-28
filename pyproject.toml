@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gitlab-mcp-lite"
+version = "0.1.0"
+description = "A small stdlib-only MCP server for the GitLab REST API: pipelines, jobs, issues and merge requests, with dry runs and a read-only mode. Works with Claude Code, Codex, VS Code Copilot and other MCP clients."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "prachwal" }]
+keywords = ["mcp", "model-context-protocol", "gitlab", "ci", "merge-requests", "agents", "claude-code", "codex", "copilot"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Version Control :: Git",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.11"]
+
+[project.urls]
+Homepage = "https://github.com/prachwal/gitlab-mcp-lite"
+Repository = "https://github.com/prachwal/gitlab-mcp-lite"
+Issues = "https://github.com/prachwal/gitlab-mcp-lite/issues"
+
+[project.scripts]
+gitlab-mcp-lite = "gitlab_mcp_lite.cli:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 130
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src"]
